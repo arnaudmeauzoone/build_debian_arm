@@ -1,5 +1,7 @@
 # build_debian_arm
 
+![alt text](debian.jpg "Debian on my android tablet")
+
 
 This is a simple script to help you to build a debian for your android smartphone/tablet 
 
