@@ -99,7 +99,7 @@ Creating tar.bz2 achive
 ${NC}
 "
 
-tar jcvf debian_armhf_jessie.tar.bz2 $FILE
+tar jcvf output/debian_armhf_jessie.tar.bz2 $FILE
 
 echo "
 ${GREEN}
