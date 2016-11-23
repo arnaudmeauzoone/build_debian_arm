@@ -10,6 +10,15 @@ This script doesn't recompile the kernel (for now :) )
 
 The first script need to be run on your computer and will build a tar.bz2 file 
 
+You should end up with this file structure
+
+```
+build.sh
+output/
++--debian_armhf_jessie.tar.bz2
+
+```
+
 You will have to copie the tar.bz2 file to your android device 
 
 For exemple in /data/tmp or in sdcard folder 
@@ -31,7 +40,9 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-FILE=$(pwd)/debian_armhf_jessie
+DIR=$(pwd)/debian_armhf_jessie
+OUT=$(pwd)/output
+FILE=$OUT/debian_armhf_jessie.tar.bz2
 
 echo "
 ${GREEN}
@@ -49,7 +60,7 @@ if [ -d $FILE ]; then
 fi
 
 
-mkdir $FILE
+mkdir $DIR
 
 
 echo "
@@ -62,7 +73,7 @@ Beginning of deboostrap
 ${NC}
 "
 
-debootstrap --arch=armhf --foreign  jessie  $FILE  http://httpredir.debian.org/debian
+debootstrap --arch=armhf --foreign  jessie  $DIR  http://httpredir.debian.org/debian
 
 echo "
 ${GREEN}
@@ -75,7 +86,7 @@ ${NC}
 "
 
 
-cp /usr/bin/qemu-arm-static $FILE/usr/bin
+cp /usr/bin/qemu-arm-static $DIR/usr/bin
 
 echo "
 ${GREEN}
@@ -87,7 +98,7 @@ Starting deboostrap second stage
 ${NC}
 "
 
-chroot $FILE /debootstrap/debootstrap --second-stage
+chroot $DIR /debootstrap/debootstrap --second-stage
 
 echo "
 ${GREEN}
@@ -98,8 +109,9 @@ Creating tar.bz2 achive
 ##############################################################################################
 ${NC}
 "
+mkdir $OUT
 
-tar jcvf output/debian_armhf_jessie.tar.bz2 $FILE
+tar jcvf $FILE $DIR
 
 echo "
 ${GREEN}
@@ -111,7 +123,7 @@ Delete tmp file
 ${NC}
 "
 
-rm -rf $FILE
+rm -rf $DIR
 
 echo "
 ${GREEN}
