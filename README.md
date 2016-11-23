@@ -7,7 +7,7 @@ This is a simple script to help you to build a debian for your android smartphon
 
 I hope it will help people to understant how debian work on arm 
 
-This script will build the debian jessie distribution which will will run on the android kernel. 
+This script will build the debian jessie distribution which will will run on top of the android kernel. 
 This script doesn't recompile the kernel (for now :) )
 
 The first script need to be run on your computer and will build a tar.bz2 file 
