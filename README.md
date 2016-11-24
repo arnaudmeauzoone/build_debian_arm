@@ -10,12 +10,21 @@ I hope it will help people to understant how debian work on arm
 This script will build the debian jessie distribution which will will run on top of the android kernel. 
 This script doesn't recompile the kernel (for now :) )
 
+Clone this git 
+
 The first script need to be run on your computer and will build a tar.bz2 file 
+
+``` shell
+./first-script.sh
+```
+
 
 You should end up with this file structure
 
 ```
-build.sh
+README.md
+debian.jpg
+first-script.sh
 output/
 +--debian_armhf_jessie.tar.bz2
 
