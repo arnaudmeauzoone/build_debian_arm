@@ -25,20 +25,21 @@ You should end up with this file structure
 README.md
 debian.jpg
 first-script.sh
+second-script.sh
 output/
 +--debian_armhf_jessie.tar.bz2
 
 ```
 
-You will have to copie the tar.bz2 file to your android device 
+You will have to copy the tar.bz2 file and the second-script.sh to your android device inside the same folder 
 
-For exemple in /data/tmp or in sdcard folder 
+For exemple in /data/tmp/debian or in sdcard folder 
 
-Then make sure that the partiction you have copied the file on your android device is mounted read write. You will need to have a rooted android phone
+Then make sure that the partiction you have copied the files on your android device is mounted read write. You will need to have a rooted android phone
 
 Then run the second script on your android device in the same folder that the tar.bz2 file
 
-You will end-up in a fully working chroot debian environment on your android device 
+You will end-up in a fully working chroot debian jessie environment on your android device 
 
 ## First Script
 
